@@ -1,0 +1,506 @@
+/* =========================================================
+   VendorBid — Custom Stylesheet
+   ========================================================= */
+
+:root {
+    --vb-primary: #2451B8;
+    --vb-primary-dark: #1B3C8F;
+    --vb-secondary: #F5A623;
+    --vb-bg: #F4F6FB;
+    --vb-sidebar-bg: #101B33;
+    --vb-sidebar-bg-hover: #1B2C4F;
+    --vb-text-muted: #6b7385;
+    --vb-radius: 14px;
+    --vb-sidebar-width: 264px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--vb-bg);
+    color: #1f2430;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================================================
+   Layout wrapper
+   ========================================================= */
+
+.vb-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.vb-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin-left: var(--vb-sidebar-width);
+    transition: margin-left .25s ease;
+}
+
+.vb-content {
+    flex: 1;
+}
+
+/* =========================================================
+   Sidebar
+   ========================================================= */
+
+.vb-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--vb-sidebar-width);
+    background: linear-gradient(180deg, var(--vb-sidebar-bg) 0%, #0B1424 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    z-index: 1040;
+    transition: transform .25s ease;
+}
+
+.vb-sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 1.4rem 1.4rem 1rem;
+    color: #fff;
+}
+
+.vb-sidebar-brand i {
+    color: var(--vb-secondary);
+}
+
+.vb-sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .9rem 1.4rem;
+    margin: 0 1rem 1rem;
+    background: rgba(255,255,255,.06);
+    border-radius: var(--vb-radius);
+}
+
+.vb-sidebar-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--vb-secondary);
+    color: #101B33;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.vb-sidebar-username {
+    font-weight: 600;
+    font-size: .9rem;
+    line-height: 1.2;
+}
+
+.vb-sidebar-role {
+    font-size: .75rem;
+    color: rgba(255,255,255,.55);
+    text-transform: capitalize;
+}
+
+.vb-sidebar-nav {
+    flex: 1;
+    padding: .5rem 1rem;
+    overflow-y: auto;
+}
+
+.vb-nav-link {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    padding: .7rem 1rem;
+    border-radius: 10px;
+    color: rgba(255,255,255,.75);
+    font-size: .92rem;
+    font-weight: 500;
+    margin-bottom: .25rem;
+    transition: background .15s ease, color .15s ease;
+}
+
+.vb-nav-link i {
+    width: 18px;
+    text-align: center;
+}
+
+.vb-nav-link:hover:not(.disabled) {
+    background: var(--vb-sidebar-bg-hover);
+    color: #fff;
+}
+
+.vb-nav-link.active {
+    background: var(--vb-primary);
+    color: #fff;
+}
+
+.vb-nav-link.disabled {
+    opacity: .38;
+    cursor: not-allowed;
+}
+
+.vb-sidebar-bottom {
+    padding: 1rem;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.vb-logout {
+    color: #ff8686;
+}
+
+.vb-logout:hover {
+    background: rgba(255,80,80,.12);
+    color: #ff8686;
+}
+
+.vb-sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 1030;
+}
+
+/* =========================================================
+   Navbar
+   ========================================================= */
+
+.vb-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: .9rem 1.5rem;
+    box-shadow: 0 2px 10px rgba(20, 30, 60, .05);
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+.vb-navbar-title h1 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.vb-sidebar-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+    color: #1f2430;
+    margin-right: 1rem;
+}
+
+.vb-navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.vb-navbar-badge {
+    background: var(--vb-bg);
+    color: var(--vb-primary);
+    font-size: .78rem;
+    font-weight: 600;
+    padding: .35rem .7rem;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    text-transform: capitalize;
+}
+
+.vb-navbar-user {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    font-size: .9rem;
+    color: #1f2430;
+}
+
+.vb-navbar-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--vb-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: .85rem;
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+.vb-footer {
+    background: #fff;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e9ecf3;
+    font-size: .85rem;
+}
+
+/* =========================================================
+   Cards / Dashboard
+   ========================================================= */
+
+.vb-page-heading {
+    font-weight: 700;
+}
+
+.card {
+    border-radius: var(--vb-radius);
+}
+
+.vb-stat-card {
+    border-radius: var(--vb-radius);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.vb-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(20, 30, 60, .08) !important;
+}
+
+.vb-stat-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.vb-stat-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.vb-stat-value-sm {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.vb-stat-label {
+    color: var(--vb-text-muted);
+    font-size: .82rem;
+    margin-top: .15rem;
+}
+
+.vb-profile-table th {
+    width: 140px;
+    color: var(--vb-text-muted);
+    font-weight: 600;
+    font-size: .85rem;
+}
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+
+.btn-vb-primary {
+    background: var(--vb-primary);
+    border-color: var(--vb-primary);
+    color: #fff;
+    font-weight: 600;
+    padding: .65rem 1rem;
+    border-radius: 10px;
+    transition: background .15s ease;
+}
+
+.btn-vb-primary:hover {
+    background: var(--vb-primary-dark);
+    border-color: var(--vb-primary-dark);
+    color: #fff;
+}
+
+/* =========================================================
+   Auth Pages (Login / Register)
+   ========================================================= */
+
+.vb-auth-body {
+    background: linear-gradient(135deg, #101B33 0%, #2451B8 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.vb-auth-wrapper {
+    width: 100%;
+    max-width: 480px;
+}
+
+.vb-auth-brand {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.vb-auth-brand i {
+    font-size: 2rem;
+    color: var(--vb-secondary);
+    display: block;
+    margin-bottom: .4rem;
+}
+
+.vb-auth-brand span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: block;
+}
+
+.vb-auth-brand small {
+    color: rgba(255,255,255,.7);
+    font-size: .8rem;
+}
+
+.vb-auth-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 2.2rem 2rem;
+    box-shadow: 0 20px 45px rgba(0,0,0,.25);
+}
+
+.vb-auth-card-header {
+    text-align: center;
+    margin-bottom: 1.6rem;
+}
+
+.vb-auth-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto .8rem;
+    font-size: 1.5rem;
+}
+
+.vb-auth-icon-admin {
+    background: #E9F0FF;
+    color: var(--vb-primary);
+}
+
+.vb-auth-icon-contractor {
+    background: #FFF3E0;
+    color: var(--vb-secondary);
+}
+
+.vb-auth-card-header h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: .3rem;
+}
+
+.vb-auth-card-header p {
+    color: var(--vb-text-muted);
+    font-size: .88rem;
+    margin: 0;
+}
+
+.vb-auth-links {
+    text-align: center;
+    margin-top: 1.3rem;
+    font-size: .87rem;
+}
+
+.vb-auth-links a {
+    color: var(--vb-primary);
+    font-weight: 600;
+}
+
+.vb-auth-links-sep {
+    margin: 0 .5rem;
+    color: #ccc;
+}
+
+.vb-auth-footer-text {
+    text-align: center;
+    color: rgba(255,255,255,.7);
+    font-size: .78rem;
+    margin-top: 1.3rem;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+    .vb-sidebar {
+        transform: translateX(-100%);
+    }
+
+    .vb-sidebar.show {
+        transform: translateX(0);
+    }
+
+    .vb-main {
+        margin-left: 0;
+    }
+
+    .vb-sidebar-toggle {
+        display: inline-block;
+    }
+
+    .vb-sidebar-backdrop.show {
+        display: block;
+    }
+}
+
+/* =========================================================
+   Bid Module (Part 3)
+   ========================================================= */
+
+/* Highlight the lowest bid row on the comparison table */
+tr.table-success td:first-child {
+    border-left: 4px solid var(--bs-success, #198754);
+}
+
+tr.table-success {
+    --bs-table-bg: #e9f9ef;
+}
+
+/* File upload control feedback */
+#document.is-invalid {
+    border-color: var(--bs-danger, #dc3545);
+}
+
+#vbFileError {
+    font-size: .82rem;
+}
+
+/* Bid stat emphasis inside detail cards */
+.vb-profile-table td .badge {
+    font-weight: 600;
+}
+
